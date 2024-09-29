@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>predict</title>
+    <style>
+        body {
+            background-image: url("static\crop.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .main {
+            position: fixed;
+            top: 100px;
+            left: 150px;
+            width: 450px;
+            background-color: white;
+            border-radius: 10px;
+            align-items: center;
+            padding: 5%;
+        }
+        h1 {
+            color: green;
+            font-size: 25px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+        button {
+            background-color: bisque;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div align="center" class="main">
+    <h1>AGRICULTURE CULTIVATION PREDICTION</h1>
+    <form action="/predict" method="post">
+        <table>
+            <tr>
+                <td align="right">Nitrogen:</td>
+                <td align="left"><input type="text" name="Nitrogen"></td>
+            </tr>
+            <tr>
+                <td align="right">Phosphorus:</td>
+                <td align="left"><input type="text" name="Phosphorus"></td>
+            </tr>
+            <tr>
+                <td align="right">Potassium:</td>
+                <td align="left"><input type="text" name="Potassium"></td>
+            </tr>
+            <tr>
+                <td align="right">Temperature:</td>
+                <td align="left"><input type="text" name="Temperature"></td>
+            </tr>
+            <tr>
+                <td align="right">Humidity:</td>
+                <td align="left"><input type="text" name="Humidity"></td>
+            </tr>
+            <tr>
+                <td align="right">PH:</td>
+                <td align="left"><input type="text" name="PH"></td>
+            </tr>
+            <tr>
+                <td align="right">Rainfall:</td>
+                <td align="left"><input type="text" name="Rainfall"></td>
+            </tr>
+        </table><br>
+        <button type="submit" style="height:40px; width:100px">Predict</button>
+    </form>
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</div>
+</body>
+</html>
